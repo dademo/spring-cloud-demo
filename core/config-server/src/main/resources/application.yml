@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: spring-cloud-demo-config-server
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          addLabelLocations: false
+          searchLocations:
+            - classpath:/configurations
+            - classpath:/configurations/{application}
+
+management:
+  metrics:
+    export:
+      influx:
+        enabled: true
+        auto-create-db: true
+        db: spring-cloud-demo-config-server
+        uri: "http://localhost:8086"
+        user-name: influxdb
+        password: influxdb
+
+server:
+  port: 8888
+
+logging:
+  level:
+    ROOT: INFO
+    org.springframework.cloud.config: DEBUG
+    org.springframework.cloud.config.server: DEBUG

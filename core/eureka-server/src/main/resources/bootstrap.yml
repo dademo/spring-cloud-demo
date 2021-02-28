@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: spring-cloud-demo-eureka-server
+  cloud:
+    config:
+      uri: "http://localhost:8888/"
+      fail-fast: true
+
+server:
+  port: 8761
+
+# eureka:
+#   client:
+#     register-with-eureka: false
+#     fetch-registry: false
+#
+# logging:
+#   level:
+#     com:
+#       netflix:
+#         # eureka: ON
+#         # discovery: OFF
+
+
+logging:
+  level:
+    ROOT: INFO
+    org.springframework.cloud.config: DEBUG
