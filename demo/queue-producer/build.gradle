@@ -19,12 +19,17 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-actuator'
-    implementation 'org.springframework.cloud:spring-cloud-config-server'
-    implementation 'org.springframework.cloud:spring-cloud-config-monitor'
-    implementation 'org.springframework.cloud:spring-cloud-starter-stream-rabbit'
+    implementation 'org.springframework.cloud:spring-cloud-starter'
+    implementation 'org.springframework.cloud:spring-cloud-starter-config'
 
+    implementation 'org.springframework.cloud:spring-cloud-starter-task'
+    implementation 'org.springframework.cloud:spring-cloud-stream'
+    implementation 'org.springframework.cloud:spring-cloud-stream-binder-rabbit'
+
+    compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    runtimeOnly 'org.postgresql:postgresql'
+    annotationProcessor 'org.projectlombok:lombok'
 
     runtimeOnly 'io.micrometer:micrometer-registry-influx'
 }
@@ -32,6 +37,7 @@ dependencies {
 dependencyManagement {
     imports {
         mavenBom "org.testcontainers:testcontainers-bom:${testcontainersVersion}"
+        mavenBom "com.azure.spring:azure-spring-boot-bom:${azureVersion}"
         mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
     }
 }

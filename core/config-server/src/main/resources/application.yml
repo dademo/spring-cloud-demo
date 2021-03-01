@@ -3,6 +3,11 @@ spring:
     name: spring-cloud-demo-config-server
   profiles:
     active: native
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: rabbitmq
+    password: rabbitmq
   cloud:
     config:
       server:
@@ -12,13 +17,12 @@ spring:
             - classpath:/configurations
             - classpath:/configurations/{application}
 
-management:
   metrics:
     export:
       influx:
         enabled: true
         auto-create-db: true
-        db: spring-cloud-demo-config-server
+        db: spring-cloud-demo
         uri: "http://localhost:8086"
         user-name: influxdb
         password: influxdb

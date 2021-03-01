@@ -2,12 +2,15 @@ spring:
   cloud:
     stream:
       bindings:
-        dataInput:
+        dataOutput:
           destination: testQueueDataExchange
           group: testQueueDataExchange-queue
       rabbit:
         bindings:
-          dataInput:
-            consumer:
+          dataOutput:
+            producer:
               exchangeType: direct
-              bindingRoutingKey: "testRoutingKey"
+              routingKeyExpression: '''testRoutingKey'''
+
+app:
+  generatedCount: 10000

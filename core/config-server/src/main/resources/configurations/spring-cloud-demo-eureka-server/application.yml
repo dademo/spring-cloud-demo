@@ -3,12 +3,6 @@ eureka:
     register-with-eureka: false
     fetch-registry: false
 
-management:
-  metrics:
-    export:
-      influx:
-        db: spring-cloud-demo-eureka-server
-
 logging:
   level:
     com:

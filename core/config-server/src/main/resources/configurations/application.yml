@@ -1,3 +1,49 @@
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: rabbitmq
+    password: rabbitmq
+  cloud:
+    task:
+      initialize-enabled: true
+    bus:
+      enabled: true
+      refresh:
+        enabled: true
+      trace:
+        enabled: true
+    stream:
+      rabbit:
+        default:
+          acknowledgeMode: AUTO
+          batchingEnabled: false
+          bindQueue: true
+          containerType: direct
+          declareExchange: true
+          exchangeAutoDelete: true
+          exchangeDurable: true
+          exchangeType: direct
+          lazy: false
+          maxConcurrency: -1
+          missingQueuesFatal: false
+          prefetch: 1
+          queueDeclarationRetries: 3
+          quorum:
+            enabled: false
+        binder:
+          adminAddresses: localhost:5672
+          nodes: localhost:5672
+      default:
+        consumer:
+          autoStartup: true
+          partitioned: false
+          maxAttempts: 3 # Will retry 2 times processing a message
+          backOffInitialInterval: 1000
+          backOffMultiplier: 2.0
+        producer:
+          autoStartup: true
+
 eureka:
   client:
     register-with-eureka: true
@@ -11,10 +57,15 @@ eureka:
 
 management:
   metrics:
+    web:
+      server:
+        auto-time-requests: true
     export:
       influx:
         enabled: true
         auto-create-db: true
+        db: spring-cloud-demo
         uri: "http://localhost:8086"
         user-name: influxdb
         password: influxdb
+
