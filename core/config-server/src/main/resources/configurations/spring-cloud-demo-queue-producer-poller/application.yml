@@ -16,7 +16,9 @@ spring:
               exchangeType: direct
               exchangeAutoDelete: false
               bindingRoutingKey: 'testRoutingKey'
-              routingKeyExpression: 'testRoutingKey'
+              routingKeyExpression: "'testRoutingKey'"
 
 app:
-  generatedCount: 10000
+  producerName: testPollerProducer
+  # https://jsonplaceholder.typicode.com/guide/
+  serviceUrl: https://jsonplaceholder.typicode.com/posts

@@ -5,3 +5,4 @@ include 'core:config-server'
 
 include 'demo:test-app'
 include 'demo:queue-producer'
+include 'demo:queue-producer-poller'

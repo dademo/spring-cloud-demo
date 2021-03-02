@@ -10,4 +10,5 @@ spring:
           dataInput:
             consumer:
               exchangeType: direct
-              bindingRoutingKey: "testRoutingKey"
+              exchangeAutoDelete: false
+              bindingRoutingKey: 'testRoutingKey'

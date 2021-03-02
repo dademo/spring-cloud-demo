@@ -27,11 +27,18 @@ public class TestDataProducer {
     public void produce() {
         logger.info("Generating {} message(s)...", generatedCount);
         IntStream.rangeClosed(0, generatedCount)
-                .forEach(it -> processor.dataOutput().send(this.messageUsingId(it)));
+                .forEach(it -> logResult(processor.dataOutput().send(this.messageUsingId(it))));
         logger.info("Done !");
     }
 
     private Message<?> messageUsingId(int id) {
         return MessageBuilder.withPayload(String.format("Body using id %d", id)).build();
+    }
+
+    private void logResult(boolean hasBeenSuccessfullySent) {
+
+        if (!hasBeenSuccessfullySent) {
+            logger.warn("An error occurred when sending message");
+        }
     }
 }

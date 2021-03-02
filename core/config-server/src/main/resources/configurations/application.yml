@@ -4,6 +4,8 @@ spring:
     port: 5672
     username: rabbitmq
     password: rabbitmq
+    publisher-confirm-type: correlated
+    publisher-returns: true
   cloud:
     task:
       initialize-enabled: true
@@ -17,10 +19,13 @@ spring:
       rabbit:
         default:
           acknowledgeMode: AUTO
+          autoBindDlq: true
           batchingEnabled: false
           bindQueue: true
           containerType: direct
+          declareDlx: true
           declareExchange: true
+          deliveryMode: PERSISTENT
           exchangeAutoDelete: true
           exchangeDurable: true
           exchangeType: direct
@@ -41,8 +46,10 @@ spring:
           maxAttempts: 3 # Will retry 2 times processing a message
           backOffInitialInterval: 1000
           backOffMultiplier: 2.0
+          bindQueue: true
         producer:
           autoStartup: true
+          bindQueue: true
 
 eureka:
   client:
@@ -69,3 +76,10 @@ management:
         user-name: influxdb
         password: influxdb
 
+logging:
+  level:
+    org:
+      springframework:
+        cloud: DEBUG
+        amqp:
+          rabbit: DEBUG
