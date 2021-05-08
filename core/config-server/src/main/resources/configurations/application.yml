@@ -16,6 +16,7 @@ spring:
       trace:
         enabled: true
     stream:
+      defaultBinder: nats
       rabbit:
         default:
           acknowledgeMode: AUTO
@@ -50,6 +51,16 @@ spring:
         producer:
           autoStartup: true
           bindQueue: true
+
+nats:
+  spring:
+    server: 127.0.0.1
+    connectionname: nats
+    maxreconnect: 3
+    reconnectwait: 4s
+    connectiontimeout: 4s
+    pinginterval: 4s
+    noecho: true
 
 eureka:
   client:

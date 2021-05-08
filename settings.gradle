@@ -1,8 +1,19 @@
+pluginManagement {
+    plugins {
+        id 'org.springframework.boot' version "${DEP_SPRING_BOOT_VERSION}"
+        id 'io.spring.dependency-management' version "${SPRING_DEPENDENCY_MODULE_VERSION}"
+    }
+}
+
 rootProject.name = 'spring-cloud-demo'
 
 include  'core:eureka-server'
 include 'core:config-server'
 
 include 'demo:test-app'
-include 'demo:queue-producer'
+include 'demo:queue-producer-client'
+include 'demo:queue-producer-generator'
 include 'demo:queue-producer-poller'
+
+// POCS
+include 'demo:sse-server'

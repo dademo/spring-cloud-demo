@@ -12,7 +12,7 @@ public class TaskRunner implements CommandLineRunner {
     private TestDataProducer producer;
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
         producer.produce();
     }
 }

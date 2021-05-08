@@ -21,21 +21,17 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
-
+    
     implementation 'org.springframework.cloud:spring-cloud-starter'
     implementation 'org.springframework.cloud:spring-cloud-starter-config'
     implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
 
     implementation 'org.springframework.cloud:spring-cloud-stream'
-    implementation 'org.springframework.cloud:spring-cloud-stream-binder-rabbit'
     implementation "io.nats:nats-spring-cloud-stream-binder:${DEP_NATS_SPRING_BINDER_VERSION}"
     implementation "io.nats:jnats:${DEP_NATS_VERSION}"
-    implementation 'org.springframework.cloud:spring-cloud-starter-bus-amqp'
 
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
-
-    runtimeOnly 'org.postgresql:postgresql'
     runtimeOnly 'io.micrometer:micrometer-registry-influx'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
 }
@@ -43,7 +39,6 @@ dependencies {
 dependencyManagement {
     imports {
         mavenBom "org.testcontainers:testcontainers-bom:${DEP_TESTCONTAINERS_VERSION}"
-        mavenBom "com.azure.spring:azure-spring-boot-bom:${DEP_SPRING_BOOT_AZURE_VERSION}"
         mavenBom "org.springframework.cloud:spring-cloud-dependencies:${DEP_SPRING_CLOUD_DEPENDENCIES_VERSION}"
     }
 }

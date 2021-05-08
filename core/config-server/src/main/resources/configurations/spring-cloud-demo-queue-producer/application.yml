@@ -16,7 +16,6 @@ spring:
               exchangeType: direct
               exchangeAutoDelete: false
               bindingRoutingKey: 'testRoutingKey'
-              routingKeyExpression: 'testRoutingKey'
 
 app:
   generatedCount: 10000

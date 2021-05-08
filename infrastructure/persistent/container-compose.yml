@@ -76,3 +76,11 @@ services:
     environment:
       RABBITMQ_DEFAULT_USER: rabbitmq
       RABBITMQ_DEFAULT_PASS: rabbitmq
+
+  nats:
+    image: docker.io/nats:2.2.0
+    restart: "no"
+    ports:
+      - 4222:4222
+      - 8222:8222
+      - 6222:6222

@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    stream:
+      bindings:
+        inputSeeMessages:
+          destination: inputSseMessage
+          group: inputSseMessage-queue
+      rabbit:
+        bindings:
+          dataOutput:
+            producer:
+              exchangeType: direct
+              exchangeAutoDelete: false
+              bindingRoutingKey: 'sseRoutingKey'
+
