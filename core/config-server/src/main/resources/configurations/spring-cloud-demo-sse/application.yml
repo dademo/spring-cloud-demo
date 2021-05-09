@@ -5,6 +5,7 @@ spring:
         inputSeeMessages:
           destination: inputSseMessage
           group: inputSseMessage-queue
+          binder: nats
       rabbit:
         bindings:
           dataOutput:

@@ -32,8 +32,8 @@ dependencies {
     implementation "io.nats:jnats:${DEP_NATS_VERSION}"
     implementation 'org.springframework.cloud:spring-cloud-starter-bus-amqp'
 
-    compileOnly 'org.projectlombok:lombok'
-    annotationProcessor 'org.projectlombok:lombok'
+    compileOnly "org.projectlombok:lombok:${DEP_LOMBOK_VERSION}"
+    annotationProcessor "org.projectlombok:lombok:${DEP_LOMBOK_VERSION}"
 
     runtimeOnly 'org.postgresql:postgresql'
     runtimeOnly 'io.micrometer:micrometer-registry-influx'

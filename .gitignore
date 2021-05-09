@@ -35,3 +35,13 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### Vim ###
+*.swp
+
+### MapStruct ###
+**/generated/**
+
+### Python ###
+**/venv/**
+**/__pycache__/**

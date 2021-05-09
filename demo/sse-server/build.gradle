@@ -20,6 +20,7 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-tomcat'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     
     implementation 'org.springframework.cloud:spring-cloud-starter'
@@ -30,8 +31,8 @@ dependencies {
     implementation "io.nats:nats-spring-cloud-stream-binder:${DEP_NATS_SPRING_BINDER_VERSION}"
     implementation "io.nats:jnats:${DEP_NATS_VERSION}"
 
-    compileOnly 'org.projectlombok:lombok'
-    annotationProcessor 'org.projectlombok:lombok'
+    compileOnly "org.projectlombok:lombok:${DEP_LOMBOK_VERSION}"
+    annotationProcessor "org.projectlombok:lombok:${DEP_LOMBOK_VERSION}"
     runtimeOnly 'io.micrometer:micrometer-registry-influx'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
 }

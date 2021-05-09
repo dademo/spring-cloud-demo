@@ -54,7 +54,7 @@ spring:
 
 nats:
   spring:
-    server: 127.0.0.1
+    server: nats://127.0.0.1:4222
     connectionname: nats
     maxreconnect: 3
     reconnectwait: 4s
